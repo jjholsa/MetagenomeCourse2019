@@ -54,16 +54,16 @@ For assessing the quality of recovered genomes
 conda create -n checkm_env pplacer checkm-genome numpy python=2
 ```
 After creating the environment you need to download database for `checkM`. Activate the environment and download the files to checkm folder in your work directory.  
-Then run `checkm data setRoot` and tell `checkM` where the data is ( `/projapp/project_xxxxx/checkm_db` where xxx is your csc project number).
+Then run `checkm data setRoot` and tell `checkM` where the data is ( `/projappl/project_xxxxx/checkm_db` where xxx is your csc project number).
 
 ```
 source activate checkm_env
-/projapp/project_xxxxx/
+/projappl/project_xxxxx/
 mkdir checkm_db
 cd checkm_db
 wget https://data.ace.uq.edu.au/public/CheckM_databases/checkm_data_2015_01_16.tar.gz
 tar -xzvf checkm_data_2015_01_16.tar.gz
-checkm data setRoot /projapp/project_xxxxx/checkm_db/
+checkm data setRoot /projappl/project_xxxxx/checkm_db/
 ```
 
 **Humann2**
@@ -80,7 +80,7 @@ conda create -n metaphlan_plot_env -c bioconda hclust2 graphlan export2graphlan
 For taxonomic annotation of contigs in Anvi'o. Go again to the application folder and get the programs from GitHub using command `git`. Anvi'o relies on an older version ("branch") of the program, so we need to checkout the branch specified.  
 You can read more about Centrifuge from the website where we clone it.
 ```
-cd /projapp/project_xxxxx/
+cd /projappl/project_xxxxx/
 git clone https://github.com/infphilo/centrifuge
 cd centrifuge
 # We need a certain version, so checkout the branch specified
@@ -91,7 +91,7 @@ make
 ```
 Download the pre-computed indexes for centrifuge (Can take 20 min).  
 ```
-cd /projapp/project_xxxxx/
+cd /projappl/project_xxxxx/
 # make a folder for the indices and download the indices there
 mkdir centrifuge_db
 cd centrifuge_db
@@ -103,7 +103,7 @@ tar -zxvf p+h+v.tar.gz && rm -rf p+h+v.tar.gz
 Set an environmental variable pointing to the centrifuge folder.
 You need to change the path to _**your**_ centrifuge folder.
 ```
-export CENTRIFUGE_BASE="/projapp/project_xxxxx/centrifuge_db"
+export CENTRIFUGE_BASE="/projappl/project_xxxxx/centrifuge_db"
 echo $CENTRIFUGE_BASE
 # Needs to be done every time after logging out
 ```
@@ -113,9 +113,9 @@ OR you can add it to your `.bashrc`.
 Go to home folder and open `.bashrc` with a text editor.  
 Add things after the `# User specific aliases and functions`. Make sure they pointy to the right place on your own folders.  
 ```
-export CENTRIFUGE_BASE="/projapp/project_xxxxx/centrifuge_db"
+export CENTRIFUGE_BASE="/projappl/project_xxxxx/centrifuge_db"
 # You can add also the centrifuge executable to your PATH
-export PATH=$PATH:/projapp/project_xxxxx/centrifuge
+export PATH=$PATH:/projappl/project_xxxxx/centrifuge
 ```
 If you did set the env variable before, you can remove it first and then set it thru `.bashrc`.  
 ```
